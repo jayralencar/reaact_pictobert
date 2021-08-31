@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="google" content="notranslate">
+    <title>Colourful Reaact</title>
+
+    <base href="/" />
+
+    <meta name="color-scheme" content="light dark" />
+    <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+    <!-- add to homescreen for ios -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script src="build/polyfills.js" type="content-type: application/javascript;charset=utf-8"></script>
+    <script src="polyfills.js" type="content-type: application/javascript;charset=utf-8"></script>
+    <script src="cordova.js" type="content-type: application/javascript;charset=utf-8"></script>
+    <script src="build/vendor.js" type="content-type: application/javascript;charset=utf-8"></script>
+    <script src="build/main.js" type="content-type: application/javascript;charset=utf-8"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker
+                .register('assets/sw.js')
+                .then(function() {
+                    console.log("Service Worker registered successfully");
+                })
+                .catch(function() {
+                    console.log("Service worker registration failed")
+                });
+        }
+    </script>
+
+    <link rel="manifest" href="manifest.webmanifest">
+    <meta name="theme-color" content="#84bac7">
+</head>
+
+<body>
+    <app-root id="app"></app-root>
+    <div class="phone">
+    </div>
+    <div class="message">
+        Please rotate your device!
+    </div>
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
+<script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
+
+<style type="text/css">
+    html,
+    body {
+        height: 100%;
+        width: 100%;
+    }
+    
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .phone {
+        height: 50px;
+        width: 100px;
+        border: 3px solid black;
+        border-radius: 10px;
+        animation: rotate 1.5s ease-in-out infinite alternate;
+        display: none;
+    }
+    
+    .message {
+        color: black;
+        font-size: 1em;
+        margin-top: 40px;
+        display: none;
+    }
+    
+    @keyframes rotate {
+        100% {
+            transform: rotate(0deg)
+        }
+        50% {
+            transform: rotate(0deg)
+        }
+        0% {
+            transform: rotate(90deg)
+        }
+    }
+    
+    @media only screen and (orientation: portrait) {
+        .phone,
+        .message {
+            display: block;
+        }
+        #app {
+            display: none;
+        }
+    }
+</style>
+
+</html>
